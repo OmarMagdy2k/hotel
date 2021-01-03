@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="Style.css">
+    <title>Booking</title>
+  </head>
+  <body>
+    <div class="Header"> Online Reservation</div>
+    <button class="btn_header" id=homepage>Home</button>
+    <button class="btn_header" id=bookingpage>Booking</button>
+    <button class="btn_header" id=profilepage>Profile</button>
+    <button class="btn_header" id=roomspage>Rooms</button>
+    <button class="btn_header" id=reservationpage>Reservation</button><br>
+        
+    <table class="center">
+      <tr>
+          <th id="R.Num">Room Number</th> 
+          <th id="R.Type">Room Type</th> 
+          <th id="F.Num">Floor Number</th>
+          <th id="D">Delete</th>
+          <th id="E">Edit</th>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+    </table>
+    <form action="/action_page.php">
+      <center>
+          <input type="number" placeholder="Room Number" name="roomnumber" id="text"> 
+          <button type="submit" value="Search" id ="submit">Search</button>
+    </form>
+      </center>
+          <button  type="submit" value="DONE" id ="submit">Done</button>
+          <button  type="submit" value="ADD" id ="submit">Add</button>    
+  </body>
+</html>
