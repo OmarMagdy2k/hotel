@@ -1,3 +1,11 @@
+//connect database
+<?php
+$host="127.0.0.1:3322";
+$user="root";
+$password="";
+$database="online_hotel_reservation";
+$connect=mysqli_connect($host,$user,$password,$database);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,8 +26,6 @@
             <input type="date" name="check out"id="cout"><br>
             <h3>Number Of Guestes: </h3>
             <input type="number" name="Number Of Guestes"id="#ofguestes"><br>
-            <h3>Number Of Rooms: </h3>
-            <input type="number" name="Number Of Guestes"id="#ofguestes"><br>
             <h3>Total price: </h3>
             <label id ="tp"> </label> <br>
             <h3>Payment way: </h3>
@@ -32,9 +38,14 @@
                 <input type="month" name="Expired Date" value="" id ="bd"> 
                 <input type="month" name="Expired Date" value="" id ="bd"><br><br>
             </div>
-            <button type="submit" value="Done" id ="submit">DONE</button>
+            <button type="submit" name="done" value="Done" id ="submit">DONE</button>
             <br>
         </div>
+        <?php include "booking form.php"; ?>
     </body>
 </html>
+//close connection
+<?php
+mysqli_close($connect);
+?>
 
