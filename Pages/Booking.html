@@ -1,3 +1,10 @@
+<?php
+$host="127.0.0.1:3322";
+$user="root";
+$password="";
+$database="online_hotel_reservation";
+$connect=mysqli_connect($host,$user,$password,$database);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,3 +42,6 @@
         </table>   
     </body>
 </html>
+<?php
+mysqli_close($connect);
+?>
