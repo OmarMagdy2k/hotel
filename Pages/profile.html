@@ -1,10 +1,3 @@
-<?php
-$host="127.0.0.1:3322";
-$user="root";
-$password="";
-$database="online_hotel_reservation";
-$connect=mysqli_connect($host,$user,$password,$database);
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,31 +13,26 @@ $connect=mysqli_connect($host,$user,$password,$database);
     <button class="btn_header" id=roomspage>Rooms</button>
     <button class="btn_header" id=reservationpage>Reservation</button><br><br>
     <div>
-      <h3> Email: </h3> <label id ="email"> </label>
+      <h3> Email: </h3> 
+      <label id ="email"> </label>
       <br>
       <h3>First Name: </h3> 
-      <input type="text" name=" First Name" value=""placeholder="First Name"id ="fn">  
+      <label id ="FN"> </label>
       <br>
       <h3>Last Name: </h3> 
-      <input type="text" name="Last Name" value=""placeholder="Last Name"id ="lm"> 
+      <label id ="LN"> </label>
       <br>
       <h3>SSN: </h3> 
-      <label id ="s"> </label> 
+      <label id ="SNN"> </label> 
       <br>
       <h3>password:</h3>
-      <input type="password" name="password" id ="pass">
+      <label id ="password"> </label>
       <br>
-      <h3>Confirm password: </h3> 
-      <input type="password" name="password" id ="cp"><br>
       <h3> Card number: </h3>
-      <label id="cn"> </label>
-      <input type="submit" value="Delete">
+      <label id="cardnum"> </label>
       <br>
       <h3> Birthday: </h3> 
-      <input type="Date" name="Birthday" value=""id ="bd">
+      <label id ="birth"> </label>
     </div>
   </body>
 </html>
-<?php
-mysqli_close($connect);
-?>
