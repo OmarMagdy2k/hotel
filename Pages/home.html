@@ -1,11 +1,3 @@
-//connection
-<?php
-$host="127.0.0.1:3322";
-$user="root";
-$password="";
-$database="online_hotel_reservation";
-$connect=mysqli_connect($host,$user,$password,$database);
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,14 +6,14 @@ $connect=mysqli_connect($host,$user,$password,$database);
     </head>
     <body>
         <div class="Header">Online Reservation</div>
-        <button class="btn_header" id=homepage>Home</button>
+        <a href="file:///D:/Omar/Subjects/3rd%20year/1st%20term/Seminar/O.M/Pages/home.html">
+            <button class="btn_header" id=homepage>Home</button></a>
         <button class="btn_header" id=bookingpage>Booking</button>
         <button class="btn_header" id=profilepage>Profile</button>
         <button class="btn_header" id=roomspage>Rooms</button>
         <button class="btn_header" id=reservationpage>Reservation</button><br><br>
         <div class="Header">Rooms Types</div>
-      // php log in
-        <?php include "log in.php"; ?>
+    
         <form  action="" method="post">
         <div class="box1">
             <h3> Email: </h3>
@@ -49,8 +41,5 @@ $connect=mysqli_connect($host,$user,$password,$database);
             <button id=btn>Book Now</button><br><br>
         </center>
     </body>
+    <script src="Home_test.js"></script>
 </html>
-// close connection
-<?php
-mysqli_close($connect);
-?>
