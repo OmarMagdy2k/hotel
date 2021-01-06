@@ -1,11 +1,3 @@
-//connect database
-<?php
-$host="127.0.0.1:3322";
-$user="root";
-$password="";
-$database="online_hotel_reservation";
-$connect=mysqli_connect($host,$user,$password,$database);
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +6,8 @@ $connect=mysqli_connect($host,$user,$password,$database);
     </head>
     <body>
         <div  class="Header"> Online Reservation</div>
-        <button class="btn_header" id=homepage>Home</button>
+        <a href="file:///D:/Omar/Subjects/3rd%20year/1st%20term/Seminar/O.M/Pages/home.html">
+            <button class="btn_header" id=homepage>Home</button></a>
         <button class="btn_header" id=bookingpage>Booking</button>
         <button class="btn_header" id=profilepage>Profile</button>
         <button class="btn_header" id=roomspage>Rooms</button>
@@ -25,7 +18,7 @@ $connect=mysqli_connect($host,$user,$password,$database);
             <h3>Check out: </h3>
             <input type="date" name="check out"id="cout"><br>
             <h3>Number Of Guestes: </h3>
-            <input type="number" name="Number Of Guestes"id="#ofguestes"><br>
+            <input type="number" name="Number Of Guestes"id="bumofguests"><br>
             <h3>Total price: </h3>
             <label id ="tp"> </label> <br>
             <h3>Payment way: </h3>
@@ -33,19 +26,14 @@ $connect=mysqli_connect($host,$user,$password,$database);
             <input type="radio"name="way"value="Payment" id="credit">credit<br>
             <div id="creditpart">
                 <h3>Card Number: </h3>
-                <input type="text" maxlength="16" minlength="16" name="card number"id="Card" ><br>
+                <input type="text" maxlength="16" minlength="16" name="card number"id="card" ><br>
                 <h3>Expired Date: </h3> 
-                <input type="month" name="Expired Date" value="" id ="bd"> 
-                <input type="month" name="Expired Date" value="" id ="bd"><br><br>
+                <input type="month" name="Expired Date" value="" id ="exdate"><br><br>
             </div>
             <button type="submit" name="done" value="Done" id ="submit">DONE</button>
             <br>
         </div>
-        <?php include "booking form.php"; ?>
     </body>
+    <script src="Booking_Form_Test.js"></script>
 </html>
-//close connection
-<?php
-mysqli_close($connect);
-?>
 
