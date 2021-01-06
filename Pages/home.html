@@ -1,3 +1,11 @@
+//connection
+<?php
+$host="127.0.0.1:3322";
+$user="root";
+$password="";
+$database="online_hotel_reservation";
+$connect=mysqli_connect($host,$user,$password,$database);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +20,9 @@
         <button class="btn_header" id=roomspage>Rooms</button>
         <button class="btn_header" id=reservationpage>Reservation</button><br><br>
         <div class="Header">Rooms Types</div>
+      // php log in
+        <?php include "log in.php"; ?>
+        <form  action="" method="post">
         <div class="box1">
             <h3> Email: </h3>
             <input type="text" name="email" id="email" >
@@ -22,6 +33,7 @@
             <button id=btn.log>log in</button>
             <button id=btn.sign>sign up</button>
         </div>
+        </form>
         <h1>Single Room</h1>
         <center>
             <img src="https://www.almrsal.com/wp-content/uploads/2014/12/White-Comfortable-Sofa-In-A-Modern-Stylish-Bedroom-With-Wall-Decor.jpg"><br><br>
@@ -38,3 +50,7 @@
         </center>
     </body>
 </html>
+// close connection
+<?php
+mysqli_close($connect);
+?>
