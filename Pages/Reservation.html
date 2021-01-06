@@ -1,3 +1,10 @@
+<?php
+$host="127.0.0.1:3322";
+$user="root";
+$password="";
+$database="online_hotel_reservation";
+$connect=mysqli_connect($host,$user,$password,$database);
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,19 +32,10 @@
         <th id="Price">Price</th>
         <th id="D">Delete</th>
       </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
+      <?php include "reservation.php"; ?>
     </table>
   </body>
 </html>
+        <?php
+        mysqli_close($connect);
+        ?>
