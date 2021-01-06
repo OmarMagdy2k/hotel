@@ -162,3 +162,29 @@ document.createTextNode();
 /////////////////////////////////
 ////////////////Form/////////////
 document.forms./*formname*/./*name of the element */
+/////////////////////////////////
+//jQuery
+/////////////////////////////////
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+click
+Text
+ready
+
+/////////////////////////////////
+//Ajax
+/////////////////////////////////
+1-Creat the request
+2-Deal with any response
+
+XMLHttpRequest
+send
+open
+
+/////////////////////////////////
+//prototype
+/////////////////////////////////
+prototype // useing to make the functions effect to any object from the same constructor  
+function Constructor() {
+    
+} //create constructor
+var object = new Constructor(); //create object from this constructor
