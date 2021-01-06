@@ -35,3 +35,15 @@ document.getElementById("btn,log").onclick = function(){
     logIn.open('GET','logIN.php',true);
     logIn.send("email=" + email + "&password="+password);
 }
+document.getElementById("btn1").onclick = function(){
+   
+    var type = new XMLHttpRequest();
+    type.onreadystatechange= function (){
+        if (this.readyState == 4 && this.status == 200){
+
+        }
+
+    };
+
+
+}
