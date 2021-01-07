@@ -1,4 +1,4 @@
-//var res_ID = ;
+//var Res_ID = ;
 var getSummary= new XMLHttpRequest();
 
 getSummary.onreadystatechange = function (){
@@ -10,12 +10,12 @@ getSummary.onreadystatechange = function (){
 
 
 getSummary.open('GET','getSummary.php',true);
-getSummary.send(res_ID);
+getSummary.send(Res_ID);
 
 /* php json
 {
     roomNum: 1,
     floorNum: 5,
-    res_id: 5,
+    Res_id: 5,
 
 }*/
