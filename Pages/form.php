@@ -1,13 +1,13 @@
 //connect database
 <?php
-$host="127.0.0.1";
+$host="127.0.0.1:3322";
 $user="root";
 $password="";
 $database="online_hotel_reservation";
 $connect=mysqli_connect($host,$user,$password,$database);
 ?>
 <?php
-    if(isset($_POST['sign up']))
+    if(isset($_POST['Sign Up']))
 {
 $first_name=$_POST['First Name'];
     $Last_Name=$_POST['Last Name'];  
@@ -21,11 +21,13 @@ $first_name=$_POST['First Name'];
     values('".$first_name."','". $Last_Name."','".$email."','".$SNN."','". $Phone_Number."','".$address."','". $Birthday."','". $psw."')";
     $result=  mysqli_query($connect, $sql);
     if( $result){
-        echo '</br>Data is inerted';
+        echo '</br>Data is inserted';
     } 
 else {
 die("Database query failed. " . mysqli_error($connection));
-}}?>
+}// select user id
+$userid="SELECT user_id FROM user WHERE email='$email'";
+}?>
 //close connection
 <?php
 mysqli_close($connect);
