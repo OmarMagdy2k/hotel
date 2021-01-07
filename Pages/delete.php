@@ -13,7 +13,7 @@ inner join roomtype, rooms, reservation, user
 on ( roomtype.room_type_ID=rooms.room_type_ID
 and reservation.room_ID=rooms.room_ID
 and user.user_id=reservation.user_id)
-where res_Id=".$_GET['res_Id'];
+WHERE res_Id=".$_GET['res_Id'];
 $result=mysqli_query($connect,$query);
 ?>
         <?php
