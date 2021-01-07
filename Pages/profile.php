@@ -7,12 +7,12 @@ $database="online_hotel_reservation";
 $connect=mysqli_connect($host,$user,$password,$database);
 ?>
 <?php
-$res_id=$_POST['Res_ID'];
+$userid=$_POST['userid'];
 //read from data 
 $query= select email,first_name,last_name,SSN, password,card_number,birthday
 from  user join reservation
 on  user.user_id=reservation.user_id
-WHERE res_Id=.$res_id;
+WHERE user_id=.$userid;
 $result=mysqli_query($connect,$query);
 ?>
   <?php
