@@ -16,10 +16,10 @@ $error = "Both fields are required.";
 }else
 {
 // Define $username and $password
-$emaile=$_POST['email'];
+$email=$_POST['email'];
 $password=$_POST['password'];
 //Check username and password from database
-$sql="SELECT user_id FROM user WHERE email='$emaile' and password='$password'";
+$sql="SELECT user_id FROM user WHERE email='$email' and password='$password'";
 $result=mysqli_query($connect,$sql);
 if(($row=mysqli_fetch_assoc($result)))
 {
