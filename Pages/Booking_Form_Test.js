@@ -15,7 +15,8 @@ document.getElementById("cash").onclick = function () {
     }
 };
 
-document.getElementById("submit").onclick = function () {
+document.getElementById("submit").onclick = alert("you clicked me");
+/*document.getElementById("submit").onclick = function () {
     var cin = document.getElementById("cin").value;
     var cout = document.getElementById("cout").value;
     var numofguests = document.getElementById("numofguests").value;
@@ -23,7 +24,7 @@ document.getElementById("submit").onclick = function () {
     var cash = document.getElementById("cash").value;
     var credit = document.getElementById("credit").value;
     var card = document.getElementById("card").value;
-    var exend = document.getElementById("exdate").value;
+    var exdate = document.getElementById("exdate").value;
 
     var sendBooking = new XMLHttpRequest();
     sendBooking.onreadystatechange = function () {
@@ -38,7 +39,7 @@ document.getElementById("submit").onclick = function () {
     };
     sendBooking.open('POST', 'bookingForm.php', true);
     sendBooking.send("check_in=" + cin + "&check_out=" + cout + "&noofguests=" + numofguests + "&tp=" + tp + "&cash=" + cash + "&credit=" + credit + "&card_num=" + card + "&exp_date=" + exdate );
-}
+}*/
 
 function cheackPayment() {
     document.getElementById("bookingfrom").onsubmit = function () {
