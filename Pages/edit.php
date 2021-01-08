@@ -6,16 +6,13 @@
       $connect=mysqli_connect($host,$user,$password,$database);
       ?>
             <?php
-            //delete from data 
-            $query= "delete room_number,type,floor_number
-            from rooms
-            inner join roomtype, rooms 
-            on ( roomtype.room_type_ID=rooms.room_type_ID
-            )
+            //edit 
+            $roomtype=$_POST['roomtype'];
+            $query= "update rooms set type='".roomtype."'
             where room_number=".$_GET['room_number'];
+            if(isset($_POST['done'])){
             $result=mysqli_query($connect,$query);
-            ?>
-            
+            }?>          
 <?php
         mysqli_close($connect);
         ?>
