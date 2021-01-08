@@ -1,12 +1,28 @@
-function creditPart() {
-    document.getElementById("credit").onclick = function () {
-        if (document.getElementById("credit").checked) {
-            document.getElementById("creditpart").style.display = "block";
-        } else {
-            document.getElementById("creditpart").style.display = "none";
-        }
+document.getElementById("homepage").onclick = function () {
+    window.open("home.html", "_self");
+}
+document.getElementById("bookingpage").onclick = function () {
+    if (userId !== "") {
+        window.open("bookingform.html", "_self");
+    } else {
+        alert("Please Log in First.");
     };
-    document.getElementById("creditpart").style.display = "none";
+}
+
+document.getElementById("profilepage").onclick = function () {
+    if (userId !== "") {
+        window.open("profile.html", "_self");
+    } else {
+        alert("Please Log in First.");
+    };
+}
+
+document.getElementById("roomspage").onclick = function () {
+    window.open("Rooms.html", "_self");
+}
+
+document.getElementById("reservationpage").onclick = function () {
+    window.open("Reservation.html", "_self");
 }
 
 document.getElementById("cash").onclick = function () {
@@ -15,8 +31,7 @@ document.getElementById("cash").onclick = function () {
     }
 };
 
-document.getElementById("submit").onclick = alert("you clicked me");
-/*document.getElementById("submit").onclick = function () {
+document.getElementById("submit").onclick = function () {
     var cin = document.getElementById("cin").value;
     var cout = document.getElementById("cout").value;
     var numofguests = document.getElementById("numofguests").value;
@@ -35,11 +50,24 @@ document.getElementById("submit").onclick = alert("you clicked me");
             } else {
                 alert("Error.");
             }
+        }else {
+            alert("failed response");
         }
     };
     sendBooking.open('POST', 'bookingForm.php', true);
     sendBooking.send("check_in=" + cin + "&check_out=" + cout + "&noofguests=" + numofguests + "&tp=" + tp + "&cash=" + cash + "&credit=" + credit + "&card_num=" + card + "&exp_date=" + exdate );
-}*/
+}
+
+function creditPart() {
+    document.getElementById("credit").onclick = function () {
+        if (document.getElementById("credit").checked) {
+            document.getElementById("creditpart").style.display = "block";
+        } else {
+            document.getElementById("creditpart").style.display = "none";
+        }
+    };
+    document.getElementById("creditpart").style.display = "none";
+}
 
 function cheackPayment() {
     document.getElementById("bookingfrom").onsubmit = function () {
@@ -51,8 +79,20 @@ function cheackPayment() {
         }
     };
 }
+function adminPart() {
+    if (userId === "1") {
+        document.getElementById("roomspage").style.display = "block";
+        document.getElementById("reservationpage").style.display = "block";
+    } else {
+        document.getElementById("reservationpage").style.display = "none";
+        document.getElementById("roomspage").style.display = "none";
+    }
+    document.getElementById("roomspage").style.display = "none";
+    document.getElementById("reservationpage").style.display = "none";
+}
 
 window.onload = function () {
     creditPart();
     cheackPayment();
+    adminPart();
 };
