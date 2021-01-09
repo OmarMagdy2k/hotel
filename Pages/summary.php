@@ -5,23 +5,19 @@ $password = "";
 $database = "online_hotel_reservation";
 $connect = mysqli_connect($host, $user, $password, $database);
 
-$res_id = $_POST['Res_ID'];
+$res_id = $_GET['res_Id'];
 //read from data 
 $query = "SELECT room_number,floor_number,res_Id, check_in,check_out,payment,total_price
 from  rooms join reservation
 on  rooms.room_ID=reservation.room_ID
-WHERE res_Id=.$res_id";
+WHERE res_Id=$res_id";
+
 $result = mysqli_query($connect, $query);
-//write from database
-while ($row = mysqli_fetch_assoc($result)) {
-  $room_number = $row['room_number'];
-  $floor_number = $row['floor_number'];
-  $reservation_id = $row['res_Id'];
-  $check_in = $row['check_in'];
-  $check_out = $row['check_out'];
-  $payment = $row['payment'];
-  $total_price = $row['total_price'];
+if (($row = mysqli_fetch_assoc($result))) {
+  echo json_encode($row);
+} else {
+  echo "Error: Failed to get reservation summary.";
 }
-echo json_encode($row);
+
 //close connection
 mysqli_close($connect);

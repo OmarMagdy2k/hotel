@@ -1,29 +1,33 @@
 import *  as utils from "./utils.js";
 
-var Res_ID ="";
+var qs = "";
+
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 //Request From PHP//
-var getSummary= new XMLHttpRequest();
+function getSummary() {
+    var request = new XMLHttpRequest();
 
-    getSummary.onreadystatechange = function () {
+    request.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText;
             if (response.indexOf("Error") !== -1) {
                 alert(response);
             } else {
-                myObj = JSON.parse(response);
-                document.getElementById("roomnumber").value=myObj.room_number;
-                document.getElementById("floornumber").value=myObj.floor_number;
-                document.getElementById("Res_id").value=myObj.reservation_id;
-                document.getElementById("Checkin").value=myObj.check_in;
-                document.getElementById("CheckOut").value=myObj.check_out;
-                document.getElementById("PaymentType").value=myObj.payment;
-                document.getElementById("Totalprice").value=myObj.total_price;
+                var myObj = JSON.parse(response);
+                console.log(myObj);
+                document.getElementById("roomnumber").textContent = myObj.room_number;
+                document.getElementById("floornumber").textContent = myObj.floor_number;
+                document.getElementById("Res_id").textContent = myObj.res_Id;
+                document.getElementById("Checkin").textContent = myObj.check_in;
+                document.getElementById("CheckOut").textContent = myObj.check_out;
+                document.getElementById("PaymentType").textContent = myObj.payment;
+                document.getElementById("Totalprice").textContent = myObj.total_price;
             };
         };
-    getSummary.open('GET',"summary.php", true);
-    getSummary.send(Res_ID);
+    }
+    request.open('GET', "summary.php?res_Id=" + qs.res_Id, true);
+    request.send();
 }
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
@@ -31,14 +35,10 @@ var getSummary= new XMLHttpRequest();
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 //window onload//
-window.onload = function(){
+window.onload = function () {
     utils.checkLogin();
+    var query = window.location.search.substring(1);
+    qs = utils.parse_query_string(query);
+
     getSummary();
 }
-/* php json
-{
-    roomNum: 1,
-    floorNum: 5,
-    Res_id: 5,
-
-}*/
