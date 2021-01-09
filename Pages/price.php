@@ -4,9 +4,11 @@ $user = "root";
 $password = "";
 $database = "online_hotel_reservation";
 $connect = mysqli_connect($host, $user, $password, $database);
-$roomtype=$_POST['roomtype'];
+
+$roomtypeid=$_POST['room_type_ID'];
+
 //read from data 
-$query="SELECT  price_day,price_weekend from roomtype WHERE type=.$roomtype";
+$query="SELECT  price_day,price_weekend from roomtype WHERE room_type_ID=.$roomtypeid";
 $result = mysqli_query($connect, $query);
 
 //write from database
