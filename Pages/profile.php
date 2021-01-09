@@ -6,6 +6,8 @@ $password = "";
 $database = "online_hotel_reservation";
 $connect = mysqli_connect($host, $user, $password, $database);
 
+header("Content-Type: application/json; charset=UTF-8");
+
 $userid = $_POST['userid'];
 //read from data 
 $query = "SELECT email,first_name,last_name,SSN, password,card_number,birthday
