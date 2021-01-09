@@ -1,5 +1,6 @@
-//connect database
 <?php
+//connect database
+
 $host="127.0.0.1:3322";
 $user="root";
 $password="";
