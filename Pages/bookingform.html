@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link type="text/css" rel="stylesheet" href="Style.css">
-        <title>Booking Form</title>
-    </head>
-    <body>
-        <div  class="Header"> Online Reservation</div>
-        <button class="btn_header" id=homepage>Home</button>
-        <button class="btn_header" id=bookingpage>Booking</button>
-        <button class="btn_header" id=profilepage>Profile</button>
-        <button class="btn_header" id=roomspage>Rooms</button>
-        <button class="btn_header" id=reservationpage>Reservation</button><br><br>
-        <div>
-            <h3>Check in: </h3> 
-            <input type="date" name="check in" id ="cin"><br>
-            <h3>Check out: </h3>
-            <input type="date" name="check out"id="cout"><br>
-            <h3>Number Of Guestes: </h3>
-            <input type="number" name="Number Of Guestes"id="bumofguests"><br>
-            <h3>Total price: </h3>
-            <label id ="tp"> </label> <br>
-            <h3>Payment way: </h3>
-            <input type="radio"name="way"value="Payment"id="cash">cash
-            <input type="radio"name="way"value="Payment" id="credit">credit<br>
-            <div id="creditpart">
-                <h3>Card Number: </h3>
-                <input type="text" maxlength="16" minlength="16" name="card number"id="card" ><br>
-                <h3>Expired Date: </h3> 
-                <input type="month" name="Expired Date" value="" id ="exdate"><br><br>
-            </div>
-            <button type="submit" name="done" value="Done" id ="submit">DONE</button>
-            <br>
-        </div>
-    </body>
-    <script src="Booking_Form_Test.js"></script>
-</html>
 
+<head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="Style.css">
+    <title>Booking Form</title>
+</head>
+
+<body>
+    <div class="Header"> Online Reservation</div>
+    <a href="home.html"><button class="btn_header" id=homepage>Home</button></a>
+    <a href="bookingform.html"><button class="btn_header" id=bookingpage>Booking</button></a>
+    <a href="profile.html"><button class="btn_header" id=profilepage>Profile</button></a>
+    <a href="Rooms.html"><button class="btn_header" id=roomspage>Rooms</button></a>
+    <a href="Reservation.html"><button class="btn_header" id=reservationpage>Reservation</button></a><br><br>
+    <div>
+        <h3>Check in: </h3>
+        <input type="date" name="check in" id="cin"><br>
+        <h3>Check out: </h3>
+        <input type="date" name="check out" id="cout"><br>
+        <h3>Number Of Guests: </h3>
+        <input type="number" name="Number Of Guests" id="bumofguests"><br>
+        <h3>Total price: </h3>
+        <label id="tp"> </label> <br>
+        <h3>Payment way: </h3>
+        <input type="radio" name="way" value="Payment" id="cash">cash
+        <input type="radio" name="way" value="Payment" id="credit">credit<br>
+        <div id="creditpart">
+            <h3>Card Number: </h3>
+            <input type="text" maxlength="16" minlength="16" name="card number" id="card"><br>
+            <h3>Expired Date: </h3>
+            <input type="month" name="Expired Date" value="" id="exdate"><br><br>
+        </div>
+        <button type="submit" name="done" value="Done" id="submit">DONE</button>
+        <br>
+    </div>
+</body>
+<script type="module" src="Booking_Form_Test.js"></script>
+
+</html>
