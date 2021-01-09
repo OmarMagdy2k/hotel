@@ -1,61 +1,39 @@
+import *  as utils from "./utils.js";
+
 var Res_ID ="";
-
-
-document.getElementById("homepage").onclick = function () {
-    window.open("home.html", "_self");
-}
-document.getElementById("bookingpage").onclick = function () {
-    if (userId !== "") {
-        window.open("bookingform.html", "_self");
-    } else {
-        alert("Please Log in First.");
-    };
-}
-
-document.getElementById("profilepage").onclick = function () {
-    if (userId !== "") {
-        window.open("profile.html", "_self");
-    } else {
-        alert("Please Log in First.");
-    };
-}
-
-document.getElementById("roomspage").onclick = function () {
-    window.open("Rooms.html", "_self");
-}
-
-document.getElementById("reservationpage").onclick = function () {
-    window.open("Reservation.html", "_self");
-}
-
-
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//Request From PHP//
 var getSummary= new XMLHttpRequest();
 
-getSummary.onreadystatechange = function (){
-    if (this.readyState == 4 && this.status == 200 ) {
-        var myObj = JSON.parse(this.responseText);
-        document.getElementById("room#").textContent = myObj.roomNum;
-    }
-};
-
-
-getSummary.open('GET','getSummary.php',true);
-getSummary.send(Res_ID);
-
-function adminPart() {
-    if (userId === "1") {
-        document.getElementById("roomspage").style.display = "block";
-        document.getElementById("reservationpage").style.display = "block";
-    } else {
-        document.getElementById("reservationpage").style.display = "none";
-        document.getElementById("roomspage").style.display = "none";
-    }
-    document.getElementById("roomspage").style.display = "none";
-    document.getElementById("reservationpage").style.display = "none";
+    getSummary.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = this.responseText;
+            if (response.indexOf("Error") !== -1) {
+                alert(response);
+            } else {
+                myObj = JSON.parse(response);
+                document.getElementById("roomnumber").value=myObj.room_number;
+                document.getElementById("floornumber").value=myObj.floor_number;
+                document.getElementById("Res_id").value=myObj.reservation_id;
+                document.getElementById("Checkin").value=myObj.check_in;
+                document.getElementById("CheckOut").value=myObj.check_out;
+                document.getElementById("PaymentType").value=myObj.payment;
+                document.getElementById("Totalprice").value=myObj.total_price;
+            };
+        };
+    getSummary.open('GET',"summary.php", true);
+    getSummary.send(Res_ID);
 }
-
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//Functions//
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//window onload//
 window.onload = function(){
-    adminPart();
+    utils.checkLogin();
+    getSummary();
 }
 /* php json
 {

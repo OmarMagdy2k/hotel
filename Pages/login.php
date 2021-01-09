@@ -16,8 +16,9 @@ if (empty($_GET["email"]) || empty($_GET["pass"])) {
     $sql = "SELECT * FROM user WHERE email='$email' and password='$pass'";
     $result = mysqli_query($connect, $sql);
     if (($row = mysqli_fetch_assoc($result))) {
-        $_SESSION['user_id'] = $row['user_id'];
-        echo json_encode($row);
+        $encodedUser = json_encode($row);
+        $_SESSION['user'] = $encodedUser;
+        echo $encodedUser;
     } else {
         echo "Error: Incorrect username or password.";
     }
