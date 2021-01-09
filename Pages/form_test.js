@@ -1,79 +1,80 @@
-document.getElementById("homepage").onclick = function () {
-    window.open("home.html", "_self");
-}
-document.getElementById("bookingpage").onclick = function () {
-    if (userId !== "") {
-        window.open("bookingform.html", "_self");
+import *  as utils from "./utils.js";
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//checkSubmit//
+function checkSubmit() {
+    var pass = document.getElementById("pass").value;
+    var cpass = document.getElementById("cpass").value;
+
+    if (document.getElementById("FN").value === "") {
+        alert("Please Enter Your First Name. ");
+        return false;
+    } else if (document.getElementById("LN").value === "") {
+        alert("Please Enter Your Last Name. ");
+        return false;
+    } else if (document.getElementById("PN").value === "") {
+        alert("Please Enter Your Phone Number. ");
+        return false;
+    } else if (document.getElementById("BD").value === "") {
+        alert("Please Enter Your First Name. ");
+        return false;
+    } else if (document.getElementById("SSN").value === "") {
+        alert("Please Enter Your First Name. ");
+        return false;
+    } else if (document.getElementById("address").value === "") {
+        alert("Please Enter Your First Name. ");
+        return false;
+    } else if (document.getElementById("email").value === "") {
+        alert("Please Enter Your Email. ");
+        return false;
+    } else if (pass === "") {
+        alert("Please Enter Your Password . ");
+        return false;
+    } else if (cpass === "" && pass !== cpass) {
+        alert("Please Confirm Your Password. ");
+        return false;
     } else {
-        alert("Please Log in First.");
+        return true;
+    }
+}
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//Functions//
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//Request From PHP//
+document.getElementById("signup").onclick = function () {
+    if (!checkSubmit()) return;
+    var obj = {
+        firstname: document.getElementById("FN").value,
+        lastname: document.getElementById("LN").value,
+        phonenumber: document.getElementById("PN").value,
+        birthday: document.getElementById("BD").value,
+        SSN: document.getElementById("SSN").value,
+        address: document.getElementById("address").value,
+        email: document.getElementById("email").value,
+        pass: document.getElementById("pass").value,
     };
-}
+    var dbParam = JSON.stringify(obj);
 
-document.getElementById("profilepage").onclick = function () {
-    if (userId !== "") {
-        window.open("profile.html", "_self");
-    } else {
-        alert("Please Log in First.");
-    };
-}
-
-document.getElementById("roomspage").onclick = function () {
-    window.open("Rooms.html", "_self");
-}
-
-document.getElementById("reservationpage").onclick = function () {
-    window.open("Reservation.html", "_self");
-}
-
- function cheackSubmit() {
-    document.getElementById("formcont").onsubmit= function(){
-        if (document.getElementById("FN").value == "") {
-            alert("Please Enter Your First Name. ");
-            return false;
-        } else if (document.getElementById("LN").value == "") {
-            alert("Please Enter Your Last Name. ");
-            return false;
-        } else if (document.getElementById("PN").value == ""){
-            alert("Please Enter Your Phone Number. ");
-            return false;
-        } else if (document.getElementById("BD").value == ""){
-            alert("Please Enter Your First Name. ");
-            return false;
-        } else if (document.getElementById("SNN").value == "") {
-            alert("Please Enter Your First Name. ");
-            return false;
-        } else if (document.getElementById("address").value == "") {
-            alert("Please Enter Your First Name. ");
-            return false;
-        } else if (document.getElementById("email").value == "") {
-            alert("Please Enter Your Email. ");
-            return false;
-        } else if (document.getElementById("pass").value == "") {
-            alert("Please Enter Your Password . ");
-            return false;
-        } else if (document.getElementById("cpass").value == "") {
-            alert("Please Confirm Your Password. ");
-            return false;
-        }  else {
-            return true;
+    var sendBooking = new XMLHttpRequest();
+    sendBooking.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var restxt = this.responseText;
+            if (restxt === "1") {
+                window.open("home.html", "_self");
+            } else {
+                alert("Error: " + restxt);
+            }
         }
     };
+    sendBooking.open("POST", "form.php", true);
+    sendBooking.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    sendBooking.send("x=" + dbParam);
 }
-
-function adminPart() {
-    if (userId === "1") {
-        document.getElementById("roomspage").style.display = "block";
-        document.getElementById("reservationpage").style.display = "block";
-    } else {
-        document.getElementById("reservationpage").style.display = "none";
-        document.getElementById("roomspage").style.display = "none";
-    }
-    document.getElementById("roomspage").style.display = "none";
-    document.getElementById("reservationpage").style.display = "none";
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//window onload//
+window.onload = function () {
+    utils.checkLogin();
 }
-
-window.onload = function(){
-    cheackSubmit();
-    adminPart();
-}
-//php file (form.php)
