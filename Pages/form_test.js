@@ -16,13 +16,13 @@ function checkSubmit() {
         alert("Please Enter Your Phone Number. ");
         return false;
     } else if (document.getElementById("BD").value === "") {
-        alert("Please Enter Your First Name. ");
+        alert("Please Enter Your Birthday. ");
         return false;
     } else if (document.getElementById("SSN").value === "") {
-        alert("Please Enter Your First Name. ");
+        alert("Please Enter Your SSN. ");
         return false;
     } else if (document.getElementById("address").value === "") {
-        alert("Please Enter Your First Name. ");
+        alert("Please Enter Your Address. ");
         return false;
     } else if (document.getElementById("email").value === "") {
         alert("Please Enter Your Email. ");
