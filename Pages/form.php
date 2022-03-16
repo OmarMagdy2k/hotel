@@ -29,7 +29,7 @@ if (($row2 = mysqli_fetch_assoc($result2))) {
     $_SESSION['user'] = $encodedUser;
     echo '1';
 } else {
-    echo "Error: Incorrect username or password.";
+    echo "Incorrect username or password.";
 }
 
 //close connection

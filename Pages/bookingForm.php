@@ -22,9 +22,15 @@ session_start();
 $session_user = json_decode($_SESSION["user"], false);
 $sql = "insert into reservation(user_id, room_ID, no_of_guests, check_in, check_out, payment, total_price) 
 values('" . $session_user->user_id . "','" . $room_ID . "','" . $numofguests . "','" . $cin . "','" . $cout . "','" . $payment . "','" . $tp . "')";
+<<<<<<< HEAD
 // $sql1 = "insert into user(card_number ,exp_date) values('" . $card_num . "','" . $exp_date . "')
 //    WHERE user_id=.$userid";
 $result =  mysqli_query($connect, $sql);
+=======
+//$sql1 = "insert into user(card_number ,exp_date) values('" . $card_num . "','" . $exp_date . "')
+  //WHERE user_id='" . $session_user->user_id ;
+$result =  mysqli_query($connect,$sql);
+>>>>>>> 8afef33c53471c1f18e34eda6566d2fc561dc9ec
 //select reservation ID
 $sql2 = "SELECT res_Id  from reservation WHERE user_id='" . $session_user->user_id . "' and room_ID='" . $room_ID . "' and check_in='" . $cin . "' and check_out='" . $cout . "'";
 $result2 = mysqli_query($connect, $sql2);
