@@ -63,3 +63,7 @@ export function parse_query_string(query) {
     return query_string;
   }
   
+  export function parseDate(str) {
+    var mdy = str.split('/');
+    return new Date(str);
+}
